@@ -1,5 +1,5 @@
 [flake8]
-exclude = .cache,.env,env,devops,migrations,__pycache__,tests,admin,local_settings.py,settings.py,playground
+exclude = __init__.py,.cache,.env,env,devops,migrations,__pycache__,tests,admin,local_settings.py,settings.py,playground
 import-order-style = smarkets
 ignore = C901,D400,D100,D205,D105
 max-line-length = 120
