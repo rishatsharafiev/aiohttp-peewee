@@ -3,6 +3,7 @@ import uvloop
 import pathlib
 from envparse import env
 
+# from project.utils.logger_filters import RequestIdLogFilter
 from project.utils.peewee import get_pool, get_manager
 
 env.read_envfile()
@@ -34,6 +35,60 @@ PG_MAX_CONNECTIONS = env('PG_MAX_CONNECTIONS', cast=int, default=2)
 
 # Cookie
 COOKIE_SECRET = env('COOKIE_SECRET', cast=str, default='')
+
+# Logging
+SENTRY_DSN = env('SENTRY_DSN', cast=str, default='')
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters': {
+        'verbose': {
+            'format': '%(levelname)s %(asctime)s %(process)d %(name)s %(message)s'
+        },
+        'simple': {
+            'format': '%(levelname)s %(message)s'
+        },
+    },
+    'handlers': {
+        'console': {
+            'level': 'DEBUG' if DEBUG else 'WARNING',
+            'class': 'logging.StreamHandler',
+            'formatter': 'verbose'
+        },
+        'null': {
+            'level': 'DEBUG',
+            'class': 'logging.NullHandler',
+        },
+    },
+    'loggers': {
+        'peewee.async': {
+            'handlers': ['console'],
+            'level': 'DEBUG',
+            'propagate': True,
+        },
+        'peewee': {
+            'handlers': ['console'],
+            'level': 'DEBUG',
+            'propagate': True,
+        },
+        '': {
+            'handlers': ['console'],
+            'level': 'DEBUG',
+            'propagate': True,
+        },
+        'bot': {
+            'handlers': ['console'],
+            'level': 'DEBUG',
+            'propagate': False,
+        },
+        'aiohttp.access': {
+            'handlers': ['console'],
+            'level': 'DEBUG',
+            'propagate': False,
+        },
+    },
+}
 
 # Init loop and manager
 asyncio.set_event_loop_policy(uvloop.EventLoopPolicy())
