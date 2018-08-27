@@ -1,7 +1,7 @@
 from aiohttp import web
 
-from .views import ResourceView
+from .views import WebhookView
 
 routes = [
-    web.view('/resources', ResourceView, name='resource')
+    web.view('/webhook', WebhookView, name='webhook')
 ]
