@@ -1,3 +1,3 @@
 """Init"""
 
-from .resource import ResourceView
+from .webhook import WebhookView

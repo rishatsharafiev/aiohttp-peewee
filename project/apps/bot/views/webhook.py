@@ -1,8 +1,8 @@
 from aiohttp import web
 
 
-class ResourceView(web.View):
-    """Resource View Class"""
+class WebhookView(web.View):
+    """Webhook View Class"""
 
     async def get(self):
         """Get method"""
