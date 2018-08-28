@@ -1,0 +1,29 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+aiohttp = "==3.4.0"
+peewee = "==3.6.4"
+peewee-async = "==0.6.0a0"
+peewee-migrate = "==1.0.0"
+aiotask-context = "==0.5.0"
+aiotasks = "==1.0.0"
+pytest-cov = "==2.5.1"
+ujson = "==1.35"
+"flake8" = "==3.5.0"
+envparse = "==0.2.0"
+pathlib = "==1.0.1"
+pytest = "==3.7.2"
+"jinja2" = "==2.10"
+"aiohttp-jinja2" = "==1.0.0"
+aiopg = "==0.15.0"
+aiomonitor = "==0.3.1"
+uvloop = "==0.11.2"
+raven = "==6.9.0"
+
+[dev-packages]
+
+[requires]
+python_version = "3.6"
